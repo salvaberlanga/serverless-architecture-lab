@@ -69,7 +69,7 @@ namespace TollBooth
                         _log.LogCritical($"Could not upload CSV file: {e.Message}", e);
                         successful = false;
                     }
-                }
+                
             }
 
             return successful;
