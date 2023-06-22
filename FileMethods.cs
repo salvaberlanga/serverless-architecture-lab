@@ -42,7 +42,7 @@ namespace TollBooth
             {
                 using (var textWriter = new StreamWriter(stream))
                 using (var csv = new CsvWriter(textWriter, CultureInfo.InvariantCulture, false))
-                {
+               
                     csv.WriteRecords(licensePlates.Select(ToLicensePlateData));
                     await textWriter.FlushAsync();
 
@@ -59,7 +59,9 @@ namespace TollBooth
                         stream.Position = 0;
                         // TODO 7: Asynchronously upload the blob from the memory stream.
                         // COMPLETE: await blob...;
-
+                        // TODO 7: Asynchronously upload the blob from the memory stream.
+                        // prueba
+                        await blob.UploadFromStreamAsync(stream);
                         successful = true;
                     }
                     catch (Exception e)
