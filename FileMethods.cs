@@ -57,7 +57,8 @@ namespace TollBooth
 
                         // Upload blob.
                         stream.Position = 0;
-                       
+                        // TODO 7: Asynchronously upload the blob from the memory stream.
+                        // COMPLETE: await blob...;
                         // TODO 7: Asynchronously upload the blob from the memory stream.
                         // prueba
                         await blob.UploadFromStreamAsync(stream);
@@ -68,7 +69,7 @@ namespace TollBooth
                         _log.LogCritical($"Could not upload CSV file: {e.Message}", e);
                         successful = false;
                     }
-                
+                }
             }
 
             return successful;
