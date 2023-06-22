@@ -42,7 +42,7 @@ namespace TollBooth
             {
                 using (var textWriter = new StreamWriter(stream))
                 using (var csv = new CsvWriter(textWriter, CultureInfo.InvariantCulture, false))
-               
+                {
                     csv.WriteRecords(licensePlates.Select(ToLicensePlateData));
                     await textWriter.FlushAsync();
 
@@ -69,9 +69,9 @@ namespace TollBooth
                         _log.LogCritical($"Could not upload CSV file: {e.Message}", e);
                         successful = false;
                     }
-                
+                    
+                }
             }
-
             return successful;
         }
 
